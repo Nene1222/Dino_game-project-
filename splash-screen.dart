@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedSplash(
 
-      navigator: MyHomePage(title: 'Try to avoid cactus to get more score! '), //same of nextscreen
+      navigator: MyHomePage(title: 'Try to avoid cactus to get more score! 🌵'), //same of nextscreen
       durationInSeconds: 3, 
       backgroundColor: const Color.fromARGB(255, 85, 85, 85),
       type: Transition.size,
