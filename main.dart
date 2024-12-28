@@ -5,7 +5,7 @@ import 'cactus.dart';
 import 'dino.dart';
 import 'game-object.dart';
 import 'ground.dart';
-import 'splash_screen.dart';
+import 'splash-screen.dart';
 
 
 void main() {
