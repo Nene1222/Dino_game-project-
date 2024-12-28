@@ -1,11 +1,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'cactus.dart';
 import 'cloud.dart';
+import 'cactus.dart';
 import 'dino.dart';
 import 'game-object.dart';
 import 'ground.dart';
 import 'splash_screen.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Flutter Dino',
-      debugShowCheckedModeBanner: false, 
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
@@ -47,10 +48,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
   ];
 
   List<Cloud> clouds = [
-    Cloud(worldLocation: Offset(100, 20)),
-    Cloud(worldLocation: Offset(200, 10)),
-    Cloud(worldLocation: Offset(350, -10)),
+    Cloud(worldLocation: Offset(0, 0)),
+    Cloud(worldLocation: Offset(120, -30)),
+    Cloud(worldLocation: Offset(0, 0)),
   ];
+
 
   int score = 0;
   bool isGameOver = false;
@@ -111,9 +113,11 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         setState(() {
           ground.remove(groundlet);
           ground.add(Ground(
-              worldLocation: Offset(
-                  ground.last.worldLocation.dx + groundSprite.imageWidth / 10,
-                  0)));
+            worldLocation: Offset(
+              ground.last.worldLocation.dx + groundSprite.imageWidth / 10,
+              0
+            )
+          ));
         });
       }
     }
@@ -123,38 +127,38 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         setState(() {
           clouds.remove(cloud);
           clouds.add(Cloud(
-              worldLocation: Offset(
-                  clouds.last.worldLocation.dx + Random().nextInt(100) + 50,
-                  Random().nextInt(40) - 20.0)));
+            worldLocation: Offset(
+              clouds.last.worldLocation.dx + Random().nextInt(100) + 50,
+              Random().nextInt(40) - 20.0
+            )
+          ));
         });
       }
     }
+
 
     lastUpdateCall = worldController.lastElapsedDuration ?? Duration.zero;
   }
 
   void _restartGame() {
-  setState(() {
-    isGameOver = false; 
-    score = 0; 
-    runDistance = 0; 
-    cacti.clear();
-    cacti.add(Cactus(worldLocation: Offset(300, 20))); 
+    setState(() {
+      isGameOver = false; 
+      score = 0; 
+      runDistance = 0; 
+      cacti.clear();
+      cacti.add(Cactus(worldLocation: Offset(300, 20))); 
 
-    ground.clear();
-    ground.add(Ground(worldLocation: Offset(0, 0))); 
-    ground.add(Ground(worldLocation: Offset(groundSprite.imageWidth / 10, 0))); 
+      ground.clear();
+      ground.add(Ground(worldLocation: Offset(0, 0))); 
+      ground.add(Ground(worldLocation: Offset(groundSprite.imageWidth / 10, 0))); 
 
-    
-    dino.restart();
+      dino.restart();
 
-    
-    worldController.reset(); 
-  });
+      worldController.reset(); 
+    });
 
-
-  worldController.forward(); 
- }
+    worldController.forward(); 
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,23 +183,22 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 
     for (GameObject object in [...clouds, ...ground, ...cacti, dino]) {
       children.add(AnimatedBuilder(
-          animation: worldController,
-          builder: (context, _) {
-            Rect objectRect = object.getRect(screenSize, runDistance);
-            return Positioned(
-              left: objectRect.left,
-              top: objectRect.top,
-              width: objectRect.width,
-              height: objectRect.height,
-              child: object.render(),
-            );
-          }));
+        animation: worldController,
+        builder: (context, _) {
+          Rect objectRect = object.getRect(screenSize, runDistance);
+          return Positioned(
+            left: objectRect.left,
+            top: objectRect.top,
+            width: objectRect.width,
+            height: objectRect.height,
+            child: object.render(),
+          );
+        }
+      ));
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
@@ -237,7 +240,9 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                       SizedBox(height: 20),
                       ElevatedButton(
                         onPressed: _restartGame,
-                        child: Text('Restart'),
+                        child: Text('Restart ↻',
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ],
                   ),

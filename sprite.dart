@@ -1,9 +1,8 @@
 class Sprite {
-  late String imagePath; // Marked as late
-  late int imageWidth;   // Marked as late
-  late int imageHeight;  // Marked as late
+  late String imagePath;
+  late int imageWidth;   
+  late int imageHeight; 
 
-  // You can have a method to initialize them
   void initialize({
     required String path,
     required int width,

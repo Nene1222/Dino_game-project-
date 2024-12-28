@@ -10,6 +10,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplash(
+
       navigator: MyHomePage(title: 'Try to avoid cactus to get more score! '), //same of nextscreen
       durationInSeconds: 3, 
       backgroundColor: const Color.fromARGB(255, 85, 85, 85),
@@ -26,9 +27,9 @@ class SplashScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          Text(
+          const Text(
             'DINO GAME',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 255, 255)),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 255, 255, 255)),
           ),
         ],
       ), 
