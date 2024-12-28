@@ -5,10 +5,12 @@ import 'cloud.dart';
 import 'dino.dart';
 import 'game-object.dart';
 import 'ground.dart';
+import 'splash_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Dino',
       debugShowCheckedModeBanner: false, 
-      home: MyHomePage(title: '( DINO GAME ) : Try to avoid cactus to get more score! '),
+      home: SplashScreen(),
     );
   }
 }
@@ -168,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       child: Container(
         width: screenSize.width,
         height: screenSize.height,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/background.png"), 
             fit: BoxFit.cover,

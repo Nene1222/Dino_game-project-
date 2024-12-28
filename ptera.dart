@@ -16,7 +16,7 @@ List<Sprite> PTERA_FRAMES = [
 ];
 
 class Ptera extends GameObject {
-  // this is a logical location which is translated to pixel coordinates
+
   final Offset worldLocation;
   int frame = 0;
 
