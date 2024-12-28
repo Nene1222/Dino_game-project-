@@ -136,26 +136,25 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
 
   void _restartGame() {
   setState(() {
-    isGameOver = false; // Reset game-over flag
-    score = 0; // Reset score
-    runDistance = 0; // Reset the run distance
-    cacti.clear(); // Clear all cactus obstacles
-    cacti.add(Cactus(worldLocation: Offset(300, 20))); // Add initial cactus
+    isGameOver = false; 
+    score = 0; 
+    runDistance = 0; 
+    cacti.clear();
+    cacti.add(Cactus(worldLocation: Offset(300, 20))); 
 
-    // Reset the ground objects' positions immediately
-    ground.clear(); // Clear previous ground objects
-    ground.add(Ground(worldLocation: Offset(0, 0))); // Position first ground element
-    ground.add(Ground(worldLocation: Offset(groundSprite.imageWidth / 10, 0))); // Position second ground element
+    ground.clear();
+    ground.add(Ground(worldLocation: Offset(0, 0))); 
+    ground.add(Ground(worldLocation: Offset(groundSprite.imageWidth / 10, 0))); 
 
-    // Reset the dino's state
-    dino.restart(); // Reset the dinosaur (position, animation, etc.)
+    
+    dino.restart();
 
-    // Reset the background animation before starting
-    worldController.reset(); // Ensure the animation starts from the beginning
+    
+    worldController.reset(); 
   });
 
-  // Start the animation after the state update to ensure everything is set
-  worldController.forward(); // Start the background animation immediately
+
+  worldController.forward(); 
  }
 
   @override

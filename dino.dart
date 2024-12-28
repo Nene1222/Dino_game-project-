@@ -65,14 +65,14 @@ class Dino extends GameObject {
   }
 
   void die() {
-    currentSprite = dinoSprites[5]; // Set to the dead sprite
+    currentSprite = dinoSprites[5]; 
     state = DinoState.dead;
   }
 
   void restart() {
-    currentSprite = dinoSprites[0]; // Reset to the initial sprite
+    currentSprite = dinoSprites[0]; 
     dispY = 0;
     velY = 0;
-    state = DinoState.running; // Reset state to running
+    state = DinoState.running; 
   }
 }
