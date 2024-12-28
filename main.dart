@@ -11,11 +11,10 @@ void main() {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Dino',
       debugShowCheckedModeBanner: false, 
       home: SplashScreen(),
@@ -226,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
+                      const Text(
                         'Game Over',
                         style: TextStyle(fontSize: 32, color: Colors.white),
                       ),
